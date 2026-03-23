@@ -1,3 +1,4 @@
+// あなたのGASのURLに書き換えてください
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz3Qnld645_AkZfjwpXvmIdtTU7sx9LGgsMG3YfWZTnUPlOwWZEFn_lhiGctqPhkliU/exec";
 
 const form = document.getElementById("contact-form");
@@ -7,9 +8,15 @@ const submitButton = form ? form.querySelector('button[type="submit"]') : null;
 function setStatus(message, type) {
   if (!statusEl) return;
   statusEl.textContent = message;
-  statusEl.classList.remove("is-success", "is-error");
-  if (type) {
-    statusEl.classList.add(type);
+  statusEl.style.display = "block";
+  
+  // 色の切り替え
+  if (type === "is-success") {
+    statusEl.style.color = "#8FAF8F"; // セージグリーン
+  } else if (type === "is-error") {
+    statusEl.style.color = "#d9534f"; // レッド
+  } else {
+    statusEl.style.color = "#8A7060"; // 通常
   }
 }
 
@@ -17,14 +24,10 @@ if (form && submitButton) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    // バリデーションチェック
     if (!form.checkValidity()) {
       form.reportValidity();
-      setStatus("必須項目を入力してください。", "is-error");
-      return;
-    }
-
-    if (GAS_WEB_APP_URL.includes("REPLACE_WITH_YOUR_DEPLOYMENT_ID")) {
-      setStatus("GASのURLが未設定です。contact_form.js を設定してください。", "is-error");
+      setStatus("必須項目をすべて入力してください。", "is-error");
       return;
     }
 
@@ -40,14 +43,20 @@ if (form && submitButton) {
     setStatus("送信中です...", null);
 
     try {
+      // GASへデータを送信（mode: 'no-cors' はエラー回避のため）
       await fetch(GAS_WEB_APP_URL, {
         method: "POST",
         body,
+        mode: "no-cors" 
       });
+
+      // 成功時
       form.reset();
-      setStatus("送信ありがとうございました。なるべくはやく返信します。", "is-success");
+      setStatus("送信ありがとうございました。内容を確認し、早急に返信いたします。", "is-success");
     } catch (error) {
-      setStatus("送信に失敗しました。時間をおいて再度お試しください。", "is-error");
+      // 失敗時
+      setStatus("送信に失敗しました。ネットワーク環境を確認し、再度お試しください。", "is-error");
+      console.error("Error!", error.message);
     } finally {
       submitButton.disabled = false;
     }
