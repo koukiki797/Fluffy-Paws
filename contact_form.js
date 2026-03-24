@@ -1,5 +1,5 @@
 // あなたのGASのURLに書き換えてください
-const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw8Dkzi4jJZNCOmisTzNCU32wg8E6AzXvTd8Iicq_6MXIwd9eynfJItZ0DOrp5nQiNv/exec";
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyY2fELfGwSR5sghuFnpv8WLYvqWqWymYVc7mcIyR47W1X7sdw8dsykMwYjmPyUgTDu/exec";
 
 const form = document.getElementById("contact-form");
 const statusEl = document.getElementById("form-status");
