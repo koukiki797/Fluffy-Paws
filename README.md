@@ -4,8 +4,7 @@
 「愛情と自然の中で育てる」をコンセプトに、子猫の紹介やブリーダーの想いを伝えるデザインを目指しました。
 
 ## 🌐 公開URL
-(ここに GitHub Pages の URL を貼る)
-例: https://ユーザー名.github.io/fluffy-paws/
+https://koukiki797.github.io/Fluffy-Paws/
 
 ## ✨ 特徴
 - **ナチュラルなデザイン**: セージグリーンとリネンカラーを採用し、猫の穏やかな性格を表現。
