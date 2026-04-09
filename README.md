@@ -1,4 +1,4 @@
-# 🌿 Fluffy Paws | Exotic Shorthair Breeder
+# 🌿 RARU-KAFU | Exotic Shorthair Breeder
 
 エキゾチックショートヘア専門ブリーダー **Fluffy Paws** の公式サイトです。
 「愛情と自然の中で育てる」をコンセプトに、子猫の紹介やブリーダーの想いを伝えるデザインを目指しました。
